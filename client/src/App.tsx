@@ -59,7 +59,7 @@ function App() {
       const profileObj = credential ? parseJwt(credential) : null;
          //Connect to db
          if(profileObj){
-          const response = await fetch('https://upstone-estate.onrender.com/api/v1/users',{
+          const response = await fetch('https://my-upstone.onrender.com/api/v1/users',{
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -131,7 +131,7 @@ function App() {
         <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
         <RefineSnackbarProvider>
           <Refine
-            dataProvider={dataProvider("https://upstone-estate.onrender.com/api/v1")}
+            dataProvider={dataProvider("https://my-upstone.onrender.com/api/v1")}
             notificationProvider={notificationProvider}
             ReadyPage={ReadyPage}
             catchAll={<ErrorComponent />}
