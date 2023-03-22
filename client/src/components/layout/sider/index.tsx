@@ -178,12 +178,9 @@ export const Sider: typeof DefaultSider = ({ render }) => {
                 py: isNested ? 1.25 : 1,
                 "&.Mui-selected": {
                   "&:hover": {
-                    backgroundColor: isSelected?"#1e36e8":
-                    "transparent",
+                    backgroundColor: isSelected ? '#1e36e8' : "transparent",
                   },
-                  backgroundColor:
-                  isSelected ? "#475be8": 
-                  "transparent",
+                  backgroundColor: isSelected ? '#475be8' : "transparent",
                 },
                 justifyContent: "center",
                 margin: '10px auto',
@@ -196,8 +193,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
                 sx={{
                   justifyContent: "center",
                   minWidth: 36,
-                  color: isSelected? '#fff':
-                   '#808191'
+                  color: isSelected ? '#fff' : '#808191',
                 }}
               >
                 {icon ?? <ListOutlined />}
@@ -206,9 +202,9 @@ export const Sider: typeof DefaultSider = ({ render }) => {
                 primary={label}
                 primaryTypographyProps={{
                   noWrap: true,
-                  fontSize: "14px",
+                  fontSize: "16px",
                   fontWeight: isSelected ? "bold" : "normal",
-                  color: isSelected? '#fff':'#808191',
+                  color: isSelected ? '#fff' : '#808191',
                   marginLeft: '10px'
                 }}
               />
@@ -281,19 +277,18 @@ export const Sider: typeof DefaultSider = ({ render }) => {
         key="logout"
         onClick={() => mutateLogout()}
         sx={{ 
-          justifyContent: "center",
+          justifyContent: "center" ,
           margin: '10px auto',
           borderRadius: '12px',
-          minHeight:'56px',
+          minHeight: '56px',
           width: '90%'
-          
-      }}
+        }}
       >
         <ListItemIcon
           sx={{
             justifyContent: "center",
             minWidth: 36,
-            color: "#808091",
+            color: "#808191",
           }}
         >
           <Logout />
@@ -423,7 +418,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
               textAlign: "center",
               borderRadius: 0,
               borderTop: "1px solid #ffffff1a",
-              '&: hover': {
+              '&:hover': {
                 background: '#1e36e8'
               }
             }}
@@ -438,7 +433,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
           sx={{
             display: { xs: "block", md: "none" },
             position: "fixed",
-            top: "64px",
+            top: "386px",
             left: "0px",
             borderRadius: "0 6px 6px 0",
             bgcolor: "#475be8",

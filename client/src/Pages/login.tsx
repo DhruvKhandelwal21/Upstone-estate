@@ -11,7 +11,7 @@ export const Login: React.FC = () => {
 
   const GoogleButton = (): JSX.Element => {
     const divRef = useRef<HTMLDivElement>(null);
-
+    
     useEffect(() => {
       if (typeof window === "undefined" || !window.google || !divRef.current) {
         return;
@@ -28,6 +28,8 @@ export const Login: React.FC = () => {
           },
         });
         window.google.accounts.id.renderButton(divRef.current, {
+        
+          width: '100%',
           theme: "filled_blue",
           size: "medium",
           type: "standard",
@@ -54,7 +56,7 @@ export const Login: React.FC = () => {
   >
     <Container
       component="main"
-      // maxWidth="xs"
+      maxWidth="xs"
       sx={{
         display: "flex",
         margin: " 0 auto",
@@ -67,7 +69,8 @@ export const Login: React.FC = () => {
         margin: "auto",
         width:'80%',
         overflow:'hidden',
-        display:'flex',
+        display: 'flex',
+        flexWrap: 'wrap',
         borderRadius: " 10px",
         flex: "1 1 100%",
         alignItems: "stretch",
@@ -88,7 +91,7 @@ export const Login: React.FC = () => {
             padding: "30px",
             marginBottom:'0',
             width: "100%",  
-            height: "auto",
+            height: "55%",
             boxSizing: "border-box",
           }}
         >
@@ -128,7 +131,12 @@ export const Login: React.FC = () => {
             display:'flex',
 
           }}>
-            <GoogleButton />
+            
+            <GoogleButton  />
+            
+            
+            
+            
           </Box>
         </Box>
 
