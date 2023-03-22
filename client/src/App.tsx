@@ -22,7 +22,7 @@ import dataProvider from "@pankod/refine-simple-rest";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
 import routerProvider from "@pankod/refine-react-router-v6";
 import axios, { AxiosRequestConfig } from "axios";
-import { ColorModeContextProvider } from "contexts";
+// import { ColorModeContextProvider } from "contexts";
 import { Title, Sider, Layout, Header } from "./components/layout";
 
 import { CredentialResponse } from "./interfaces/google";
@@ -126,7 +126,7 @@ function App() {
   return (
     <>
       {/* <GitHubBanner /> */}
-      <ColorModeContextProvider>
+      
         <CssBaseline />
         <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
         <RefineSnackbarProvider>
@@ -177,7 +177,7 @@ function App() {
             DashboardPage = {Home}
           />
         </RefineSnackbarProvider>
-      </ColorModeContextProvider>
+      
     </>
   );
 }
