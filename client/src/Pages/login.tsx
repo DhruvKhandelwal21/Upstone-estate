@@ -3,15 +3,14 @@ import { useLogin } from "@pankod/refine-core";
 import { Container, Box } from "@pankod/refine-mui";
 // import {yariga} from "../assets"
 import { CredentialResponse } from "../interfaces/google";
-import {logo,loginPage} from 'assets'
-
+import { logo, loginPage } from "assets";
 
 export const Login: React.FC = () => {
   const { mutate: login } = useLogin<CredentialResponse>();
 
   const GoogleButton = (): JSX.Element => {
     const divRef = useRef<HTMLDivElement>(null);
-    
+
     useEffect(() => {
       if (typeof window === "undefined" || !window.google || !divRef.current) {
         return;
@@ -20,7 +19,7 @@ export const Login: React.FC = () => {
       try {
         window.google.accounts.id.initialize({
           ux_mode: "popup",
-          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+          client_id: import.meta.env.REACT_APP_GOOGLE_CLIENT_ID,
           callback: async (res: CredentialResponse) => {
             if (res.credential) {
               login(res);
@@ -28,8 +27,7 @@ export const Login: React.FC = () => {
           },
         });
         window.google.accounts.id.renderButton(divRef.current, {
-        
-          width: '100%',
+          width: "100%",
           theme: "filled_blue",
           size: "medium",
           type: "standard",
@@ -44,105 +42,102 @@ export const Login: React.FC = () => {
 
   return (
     <Box
-    component="div"
-    sx={{
-      background: "linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%)",
-      backgroundSize: "cover",
-      backgroundRepeat: " no-repeat",
-      backgroundAttachment: "fixed",
-      margin: " 5 auto",
-      color: " #333333",
-    }}
-  >
-    <Container
-      component="main"
-      maxWidth="xs"
+      component="div"
       sx={{
-        display: "flex",
-        margin: " 0 auto",
-        width:'80%',
-        justifyContent: "center",
-        height: "100vh",
+        background: "linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%)",
+        backgroundSize: "cover",
+        backgroundRepeat: " no-repeat",
+        backgroundAttachment: "fixed",
+        margin: " 5 auto",
+        color: " #333333",
       }}
     >
-      <Box sx={{
-        margin: "auto",
-        width:'80%',
-        overflow:'hidden',
-        display: 'flex',
-        flexWrap: 'wrap',
-        borderRadius: " 10px",
-        flex: "1 1 100%",
-        alignItems: "stretch",
-        justifyContent: "space-between",
-        boxShadow: "0 0 20px 6px #090b6f85",
-        height:'80%'
-      }}>
-
-        {/* left */}
+      <Container
+        component="main"
+        maxWidth="xs"
+        sx={{
+          display: "flex",
+          margin: " 0 auto",
+          width: "80%",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
         <Box
           sx={{
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-         
-            overflow: "hidden",
-            backgroundImage:`url(${loginPage})`,
-            backgroundPosition: 'center',
-            padding: "30px",
-            marginBottom:'0',
-            width: "100%",  
-            height: "55%",
-            boxSizing: "border-box",
-          }}
-        >
-        </Box>
-
-        {/* right */}
-        <Box
-          sx={{
-            padding: "40px",
-            overflow: "hidden",
-            width:'80%',
             margin: "auto",
-            alignItems:'center',
-            justifyContent:'center'
-
+            width: "80%",
+            overflow: "hidden",
+            display: "flex",
+            flexWrap: "wrap",
+            borderRadius: " 10px",
+            flex: "1 1 100%",
+            alignItems: "stretch",
+            justifyContent: "space-between",
+            boxShadow: "0 0 20px 6px #090b6f85",
+            height: "80%",
           }}
         >
-          <div
-            style={{
-              display: "flex",
+          {/* left */}
+          <Box
+            sx={{
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+
+              overflow: "hidden",
+              backgroundImage: `url(${loginPage})`,
+              backgroundPosition: "center",
+              padding: "30px",
+              marginBottom: "0",
+              width: "100%",
+              height: "55%",
+              boxSizing: "border-box",
+            }}
+          ></Box>
+
+          {/* right */}
+          <Box
+            sx={{
+              padding: "40px",
+              overflow: "hidden",
+              width: "80%",
+              margin: "auto",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <img src={logo} alt="Logo" />
-            <h2 style={{ color: "#fcfcfc", fontWeight: "bold", padding:'2px' }}>UpStone</h2>
-          </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img src={logo} alt="Logo" />
+              <h2
+                style={{ color: "#fcfcfc", fontWeight: "bold", padding: "2px" }}
+              >
+                UpStone
+              </h2>
+            </div>
 
-          <Box mt={4}
-          sx={{
-            padding: "30px",
-            overflow: "hidden",
-            width:'80%',
-            alignContent:'center',
-            justifyContent:'center',
-            margin: " 0 auto",
-            display:'flex',
-
-          }}>
-            
-            <GoogleButton  />
-            
-            
-            
-            
+            <Box
+              mt={4}
+              sx={{
+                padding: "30px",
+                overflow: "hidden",
+                width: "80%",
+                alignContent: "center",
+                justifyContent: "center",
+                margin: " 0 auto",
+                display: "flex",
+              }}
+            >
+              <GoogleButton />
+            </Box>
           </Box>
         </Box>
-
-      </Box>
-
-    </Container>
-  </Box>
+      </Container>
+    </Box>
   );
 };
